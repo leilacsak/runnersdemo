@@ -58,4 +58,5 @@ public class RunnerEntity {
     public List<LapTimeEntity> getLaptimes() {
         return laptimes;
     }
+
 }

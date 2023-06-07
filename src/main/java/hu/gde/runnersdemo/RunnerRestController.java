@@ -20,6 +20,22 @@ public class RunnerRestController {
         this.runnerRepository = runnerRepository;
         this.lapTimeRepository = lapTimeRepository;
     }
+    @GetMapping("/averageage")
+    public  double getAverageAge(){
+        List<RunnerEntity> runnerList = runnerRepository.findAll();
+        if (!runnerList.isEmpty()) {
+            double sum = 0;
+            for (RunnerEntity runner : runnerList) {
+                sum += runner.getRunnerAge();
+            }
+            return sum / runnerList.size();
+        } else {
+            return -1.0;
+        }
+    }
+
+
+
 
     @GetMapping("/{id}")
     public RunnerEntity getRunner(@PathVariable Long id) {
