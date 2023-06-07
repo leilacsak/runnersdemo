@@ -8,19 +8,26 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final RunnerRepository runnerRepository;
+    private final ShoeRepository shoeRepository;
 
     @Autowired
-    public DataLoader(RunnerRepository runnerRepository) {
+    public DataLoader(RunnerRepository runnerRepository,ShoeRepository shoeRepository) {
         this.runnerRepository = runnerRepository;
+        this.shoeRepository = shoeRepository;
     }
 
     @Override
     public void run(String... args) {
+        ShoeEntity shoeEntity = new ShoeEntity();
+        shoeEntity.setShoeName("Adidas");
+        shoeRepository.save(shoeEntity);
+
         // create default runner entity
         RunnerEntity runnerEntity = new RunnerEntity();
         runnerEntity.setRunnerName("Tomi");
         runnerEntity.setAveragePace(310);
         runnerEntity.setRunnerAge(22);
+        runnerEntity.setShoe(shoeEntity);
 
         // create default laptime entities and add them to the runner entity
         LapTimeEntity laptime1 = new LapTimeEntity();
@@ -38,10 +45,15 @@ public class DataLoader implements CommandLineRunner {
 
         runnerRepository.save(runnerEntity);
 
+        ShoeEntity shoeEntity2 = new ShoeEntity();
+        shoeEntity2.setShoeName("Nike");
+        shoeRepository.save(shoeEntity2);
+
         RunnerEntity runnerEntity2 = new RunnerEntity();
         runnerEntity2.setRunnerName("Zsuzsi");
         runnerEntity2.setAveragePace(290);
         runnerEntity2.setRunnerAge(19);
+        runnerEntity2.setShoe(shoeEntity2);
 
         // create default laptime entities and add them to the runner entity
         LapTimeEntity laptime3 = new LapTimeEntity();
@@ -59,10 +71,15 @@ public class DataLoader implements CommandLineRunner {
 
         runnerRepository.save(runnerEntity2);
 
+        ShoeEntity shoeEntity3 = new ShoeEntity();
+        shoeEntity3.setShoeName("Reebok");
+        shoeRepository.save(shoeEntity3);
+
         RunnerEntity runnerEntity3 = new RunnerEntity();
         runnerEntity3.setRunnerName("Norbi");
         runnerEntity3.setAveragePace(250);
         runnerEntity3.setRunnerAge(26);
+        runnerEntity3.setShoe(shoeEntity3);
 
         LapTimeEntity laptime5 = new LapTimeEntity();
         laptime5.setLapNumber(1);
