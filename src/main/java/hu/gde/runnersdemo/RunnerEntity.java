@@ -12,12 +12,24 @@ public class RunnerEntity {
     private String runnerName;
     private long averagePace;
 
+    private long runnerAge;
+
     @OneToMany(mappedBy = "runner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LapTimeEntity> laptimes = new ArrayList<>();
 
 
     public RunnerEntity() {
     }
+
+    public long getRunnerAge() {
+        return runnerAge;
+    }
+
+    public void setRunnerAge(long runnerAge) {
+        this.runnerAge = runnerAge;
+    }
+
+}
 
     public long getRunnerId() {
         return runnerId;
