@@ -17,8 +17,22 @@ public class RunnerEntity {
     @OneToMany(mappedBy = "runner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LapTimeEntity> laptimes = new ArrayList<>();
 
+    @ManyToOne
+    private ShoeEntity shoe;
 
     public RunnerEntity() {
+    }
+
+    public void setLaptimes(List<LapTimeEntity> laptimes) {
+        this.laptimes = laptimes;
+    }
+
+    public ShoeEntity getShoe() {
+        return shoe;
+    }
+
+    public void setShoe(ShoeEntity shoe) {
+        this.shoe = shoe;
     }
 
     public long getRunnerAge() {
