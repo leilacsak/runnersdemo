@@ -29,7 +29,7 @@ public class RunnerEntity {
         this.runnerAge = runnerAge;
     }
 
-}
+
 
     public long getRunnerId() {
         return runnerId;
